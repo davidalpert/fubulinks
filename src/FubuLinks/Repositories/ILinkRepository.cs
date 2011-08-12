@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Raven.Client;
 
 namespace FubuLinks.Repositories
@@ -8,6 +9,7 @@ namespace FubuLinks.Repositories
         IEnumerable<Link> GetAll();
         void Insert(Link link);
         void Save();
+        void Delete(string shortenedUrl);
     }
 
     public class LinkRepository : ILinkRepository
@@ -32,6 +34,16 @@ namespace FubuLinks.Repositories
         public void Save()
         {
             _session.SaveChanges();
+        }
+
+        public void Delete(string shortenedUrl)
+        {
+            var link = _session.Query<Link>().Where(l => l.ShortenedUrl == shortenedUrl).FirstOrDefault();
+
+            if (link == null)
+                return;
+
+            _session.Delete(link);
         }
     }
 }

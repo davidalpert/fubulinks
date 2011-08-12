@@ -180,6 +180,7 @@
     <Compile Include="Handlers\GetHandler.cs" />
     <Compile Include="Handlers\HandlersMarker.cs" />
     <Compile Include="Handlers\JsonResponse.cs" />
+    <Compile Include="Handlers\Links\Delete\PostHandler.cs" />
     <Compile Include="Handlers\Links\Create\PostHandler.cs" />
     <Compile Include="Link.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

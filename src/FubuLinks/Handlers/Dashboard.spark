@@ -7,7 +7,7 @@
       <td>\${Link.ShortenedUrl}</td>
       <td>\${Link.OriginalUrl}</td>
       <td>
-        <a href="#">Remove</a> | <a href="#">Stats</a>
+        <a class="cmd-remove" href="#">Remove</a> | <a class="cmd-stats" href="#">Stats</a>
       </td>
     </tr>
   </script>
@@ -37,12 +37,17 @@
           <td>${link.ShortenedUrl}</td>
           <td>${link.OriginalUrl}</td>
           <td>
-            <a href="#">Remove</a> | <a href="#">Stats</a>
+            <a class="cmd-remove" href="#">Remove</a> | <a class="cmd-stats" href="#">Stats</a>
+          </td>
+        </tr>
+        <tr class="empty" style="display:none;">
+          <td colspan="3">
+            <p>Nothing found.</p>
           </td>
         </tr>
       </if>
       <else>
-        <tr>
+        <tr class="empty">
           <td colspan="3">
             <p>Nothing found.</p>
           </td>

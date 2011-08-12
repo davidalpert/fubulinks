@@ -19,7 +19,7 @@ namespace FubuLinks.Tests.Handlers
                                  };
 
             MockFor<ILinkRepository>()
-                .Expect(r => r.Insert(new Link {OriginalUrl = inputModel.OriginalUrl}));
+                .Expect(r => r.Insert(new Link { OriginalUrl = inputModel.OriginalUrl }));
 
             MockFor<ILinkRepository>()
                 .Expect(r => r.Save());
@@ -48,7 +48,7 @@ namespace FubuLinks.Tests.Handlers
                 .Expect(r => r.Insert(new Link { OriginalUrl = inputModel.OriginalUrl }))
                 .WhenCalled(mi =>
                                 {
-                                    var link = (Link) mi.Arguments[0];
+                                    var link = (Link)mi.Arguments[0];
                                     link
                                         .ShortenedUrl
                                         .ShouldEqual(shortenedUrl);

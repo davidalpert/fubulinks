@@ -20,4 +20,22 @@
 
         return false;
     });
+
+    $('#links .cmd-remove').live('click', function (ev) {
+
+        var target = $(ev.target).closest('tr');
+        var shortenedUrl = target.find('td').eq(0).text();
+
+        $.ajax({
+            type: 'POST',
+            url: '/Links/Delete',
+            data: { 'ShortenedUrl': shortenedUrl },
+            success: function (data) {
+                target.fadeOut(1500).remove();
+                $('#links .empty').fadeIn(1500);
+            }
+        });
+
+        return false;
+    });
 });
