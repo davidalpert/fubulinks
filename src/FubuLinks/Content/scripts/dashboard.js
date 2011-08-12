@@ -13,7 +13,7 @@
             url: action,
             data: { 'OriginalUrl': originalUrl },
             success: function (data) {
-                createLinkForm.find('.empty').fadeOut(500);
+                $('#links .empty').fadeOut(0);
                 linkTemplate.tmpl(data).prependTo('#links tbody').fadeIn(1500);
             }
         });
