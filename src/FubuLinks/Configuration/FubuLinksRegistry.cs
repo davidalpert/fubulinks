@@ -17,12 +17,12 @@ namespace FubuLinks.Configuration
 
             this.UseSpark();
 
-            this.ApplyHandlerConventions(typeof (HandlersMarker));
+            this.ApplyHandlerConventions(typeof(HandlersMarker));
 
             this.Validation(x =>
-                                {
-                                    x.Actions.Include(call => call.HasInput && call.InputType().Name.Contains("Input"));
-                                });
+                  {
+                      x.Actions.Include(call => call.HasInput && call.InputType().Name.Contains("Input"));
+                  });
 
             Output
                 .ToJson

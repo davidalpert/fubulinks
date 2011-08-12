@@ -1,15 +1,29 @@
 ﻿<use namespace="System.Linq"/>
 <viewdata model="FubuLinks.Handlers.DashboardViewModel" />
+<content:head>
+  <script src="/Content/scripts/dashboard.js"></script>
+  <script id="linkTemplate" type="text/x-jquery-tmpl">
+    <tr style="display:none;">
+      <td>\${Link.ShortenedUrl}</td>
+      <td>\${Link.OriginalUrl}</td>
+      <td>
+        <a href="#">Remove</a> | <a href="#">Stats</a>
+      </td>
+    </tr>
+  </script>
+</content:head>
 <content:main>
-  <fieldset>
-    <div class="row">
-      <input type="text" class="url" />
-      <button>
-        <span>Shorten</span>
-      </button>
-    </div>
-  </fieldset>
-  <table class="grid">
+  <form id="dashboard-add-link" action="/links/create" method="post">
+    <fieldset>
+      <div class="row">
+        <input type="text" class="url" name="OriginalUrl" />
+        <button>
+          <span>Shorten</span>
+        </button>
+      </div>
+    </fieldset>
+  </form>
+  <table id="links" class="grid">
     <thead>
       <tr>
         <th>Link</th>

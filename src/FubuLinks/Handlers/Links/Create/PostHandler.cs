@@ -17,7 +17,6 @@ namespace FubuLinks.Handlers.Links.Create // links/create (POST)
 
         public JsonResponse Execute(CreateLinkInputModel inputModel)
         {
-            var response = new JsonResponse { Success = true };
             var link = new Link
                            {
                                DateAdded = DateTime.Now,
@@ -27,7 +26,11 @@ namespace FubuLinks.Handlers.Links.Create // links/create (POST)
             _repository.Insert(link);
             _repository.Save();
 
-            return response;
+            return new JsonCreateLinkResponse
+            {
+                Success = true,
+                Link = link
+            };
         }
     }
 
@@ -35,6 +38,11 @@ namespace FubuLinks.Handlers.Links.Create // links/create (POST)
     {
         [Required]
         public string OriginalUrl { get; set; }
+    }
+
+    public class JsonCreateLinkResponse : JsonResponse
+    {
+        public Link Link { get; set; }
     }
 
     public interface IUrlShortener

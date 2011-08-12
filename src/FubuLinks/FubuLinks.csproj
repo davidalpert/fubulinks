@@ -146,6 +146,7 @@
   <ItemGroup>
     <Content Include="Content\images\bg_gradient.png" />
     <Content Include="Content\images\fubumvc.png" />
+    <Content Include="Content\scripts\dashboard.js" />
     <Content Include="Content\scripts\core.js" />
     <Content Include="Content\scripts\lib\jquery-1.6.2.min.js" />
     <Content Include="Content\scripts\lib\jquery-ui-1.8.15.custom.min.js" />
